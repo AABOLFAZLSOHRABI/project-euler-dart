@@ -1,0 +1,47 @@
+void main() {
+  /*
+    What is the Fibonacci Sequence?
+
+    The Fibonacci sequence is a series of numbers where each number 
+    (after the first two) is the sum of the two preceding ones.
+    It usually starts with 0 and 1, or 1 and 2. For example:
+    
+      0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
+    
+    - The 3rd number is 1 (0 + 1)
+    - The 4th number is 2 (1 + 1)
+    - The 5th number is 3 (1 + 2)
+    - The 6th number is 5 (2 + 3)
+    - And so on...
+
+    This sequence appears in many areas of mathematics, nature, art, and computer science.
+    In this program, we generate Fibonacci numbers and calculate the sum of the even ones up to 4,000,000.
+  */
+
+  // The first two numbers in the Fibonacci sequence
+  int previousNumber = 1;
+  int currentNumber = 2;
+
+  // This variable will store the sum of even Fibonacci numbers
+  int evenSum = 0;
+
+  // We continue generating Fibonacci numbers as long as the current number is less than or equal to 4,000,000
+  while (currentNumber <= 4000000) {
+    // Check if the current Fibonacci number is even
+    if (currentNumber % 2 == 0) {
+      // If it's even, add it to the running total
+      evenSum += currentNumber;
+    }
+
+    // Calculate the next Fibonacci number by adding the last two numbers
+    int nextNumber = previousNumber + currentNumber;
+
+    // Move forward in the sequence:
+    // The current number becomes the previous, and the next becomes current
+    previousNumber = currentNumber;
+    currentNumber = nextNumber;
+  }
+
+  // Print the result: the sum of all even Fibonacci numbers up to 4,000,000
+  print(evenSum);
+}
